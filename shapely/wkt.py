@@ -15,7 +15,7 @@ def load(fp):
     return loads(data)
 
 def dumps(ob):
-    """Dump a WKB representation of a geometry to a byte string."""
+    """Dump a geometry to a WKT string."""
     return geom_to_wkt(ob)
 
 def dump(ob, fp):
