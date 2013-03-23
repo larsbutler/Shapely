@@ -4,6 +4,7 @@
 from geo import box, shape, asShape, mapping
 from point import Point, asPoint
 from linestring import LineString, asLineString
+from polygon import LinearRing, asLinearRing
 from polygon import Polygon, asPolygon
 from multipoint import MultiPoint, asMultiPoint
 from multilinestring import MultiLineString, asMultiLineString
