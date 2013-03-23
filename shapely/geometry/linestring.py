@@ -139,6 +139,20 @@ class LineString(BaseGeometry):
             raise TopologicalError()
         
 
+    def to_wkt(self):
+        if not self.coords:
+            return 'GEOMETRYCOLLECTION EMPTY'
+
+        coords_str = ', '.join(
+            [' '.join(['%.16f' % x for x in c])
+             for c in self.coords]
+        )
+        if self.is_ring:
+            return 'LINEARRING (%s)' % coords_str
+        else:
+            return 'LINESTRING (%s)' % coords_str
+
+
 class LineStringAdapter(CachingGeometryProxy, LineString):
 
     def __init__(self, context):
