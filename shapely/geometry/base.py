@@ -278,10 +278,15 @@ class BaseGeometry(object):
     geom_type = property(geometryType,
         doc="""Name of the geometry's type, such as 'Point'"""
         )
-    wkt = property(to_wkt,
-        doc="""WKT representation of the geometry""")
     wkb = property(to_wkb,
         doc="""WKB representation of the geometry""")
+
+    @property
+    def wkt(self):
+        """WKT representation of the geometry"""
+        return self.to_wkt()
+
+
 
     # Real-valued properties and methods
     # ----------------------------------
