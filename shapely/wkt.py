@@ -16,7 +16,7 @@ def load(fp):
 
 def dumps(ob):
     """Dump a geometry to a WKT string."""
-    return geom_to_wkt(ob)
+    return ob.to_wkt()
 
 def dump(ob, fp):
     """Dump a geometry to an open file."""
