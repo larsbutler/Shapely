@@ -67,16 +67,6 @@ def geom_factory(g, parent=None):
         locals(),
         [geom_type],
         )
-
-    # There's no `LinearRing` class; we need to use `LineString`:
-    # Treat `LinearRing` as `LineString` when constructing a new geometry
-    # object, because there's no `LinearRing` class.
-    # Without this, the following would raise an exception:
-    # >>> from shapely import wkt
-    # >>> wkt.loads('LINEARRING (0 0, 2 1, 1 2, 0 0)')
-    if geom_type == 'LinearRing':
-        geom_type = 'LineString'
-
     ob.__class__ = getattr(mod, geom_type)
     ob.__geom__ = g
     ob.__p__ = parent
